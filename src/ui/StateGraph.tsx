@@ -20,10 +20,10 @@ const ROWS: { door: Vars['door']; radiation: Vars['radiation']; power: Vars['pow
   { power: 'OFF', door: 'CLOSED', radiation: 'OFF', label: 'power off · door closed' },
   { power: 'ON',  door: 'OPEN',   radiation: 'OFF', label: 'power on · door open' },
   { power: 'ON',  door: 'CLOSED', radiation: 'OFF', label: 'power on · door closed' },
-  { power: 'ON',  door: 'CLOSED', radiation: 'ON',  label: 'RADIATING · door closed' },
-  { power: 'OFF', door: 'CLOSED', radiation: 'ON',  label: 'RADIATING · power off' },
-  { power: 'ON',  door: 'OPEN',   radiation: 'ON',  label: 'RADIATING · DOOR OPEN', unsafe: true },
-  { power: 'OFF', door: 'OPEN',   radiation: 'ON',  label: 'RADIATING · DOOR OPEN', unsafe: true },
+  { power: 'ON',  door: 'CLOSED', radiation: 'ON',  label: 'RADIATING · door closed · power on' },
+  { power: 'OFF', door: 'CLOSED', radiation: 'ON',  label: 'RADIATING · door closed · power off' },
+  { power: 'ON',  door: 'OPEN',   radiation: 'ON',  label: 'RADIATING · door open · power on', unsafe: true },
+  { power: 'OFF', door: 'OPEN',   radiation: 'ON',  label: 'RADIATING · door open · power off', unsafe: true },
 ];
 
 const rowIndex = (v: Vars) =>
