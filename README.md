@@ -3,7 +3,7 @@
 An interactive, fully browser-based tour of a TLA+ specification — its **entire
 state space drawn on one screen** — using the classic microwave-oven model.
 
-**Live:** https://ericspencer00.github.io/tla-microwave/
+**Live:** https://ericspencer.us/tla-microwave/
 
 The goal is to make three ideas click for people who have never read TLA+:
 
