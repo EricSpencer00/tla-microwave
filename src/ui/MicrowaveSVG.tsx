@@ -49,11 +49,11 @@ export function MicrowaveSVG({
         <g className={`mw-door ${open ? 'mw-door-open' : ''}`}>
           <rect x="34" y="34" width="286" height="192" rx="8" className="mw-door-frame" />
           <rect x="52" y="52" width="250" height="156" rx="4" className="mw-door-glass" />
-          {/* mesh dots */}
+          {/* mesh dots — uniform grid, equal spacing both axes, centered in the glass */}
           <g className="mw-door-mesh">
-            {Array.from({ length: 5 }, (_, r) =>
-              Array.from({ length: 9 }, (_, c) => (
-                <circle key={`${r}-${c}`} cx={72 + c * 26} cy={72 + r * 29} r="2.4" />
+            {Array.from({ length: 7 }, (_, r) =>
+              Array.from({ length: 11 }, (_, c) => (
+                <circle key={`${r}-${c}`} cx={67 + c * 22} cy={64 + r * 22} r="2.2" />
               )),
             )}
           </g>
