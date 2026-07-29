@@ -20,16 +20,18 @@ const ROWS: { door: Vars['door']; radiation: Vars['radiation']; power: Vars['pow
   { power: 'OFF', door: 'CLOSED', radiation: 'OFF', label: 'power off · door closed' },
   { power: 'ON',  door: 'OPEN',   radiation: 'OFF', label: 'power on · door open' },
   { power: 'ON',  door: 'CLOSED', radiation: 'OFF', label: 'power on · door closed' },
-  { power: 'ON',  door: 'CLOSED', radiation: 'ON',  label: 'RADIATING · door closed · power on' },
-  { power: 'OFF', door: 'CLOSED', radiation: 'ON',  label: 'RADIATING · door closed · power off' },
-  { power: 'ON',  door: 'OPEN',   radiation: 'ON',  label: 'RADIATING · door open · power on', unsafe: true },
-  { power: 'OFF', door: 'OPEN',   radiation: 'ON',  label: 'RADIATING · door open · power off', unsafe: true },
+  { power: 'ON',  door: 'CLOSED', radiation: 'ON',  label: 'power on · door closed · RADIATING' },
+  { power: 'OFF', door: 'CLOSED', radiation: 'ON',  label: 'power off · door closed · RADIATING' },
+  { power: 'ON',  door: 'OPEN',   radiation: 'ON',  label: 'power on · door open · RADIATING', unsafe: true },
+  { power: 'OFF', door: 'OPEN',   radiation: 'ON',  label: 'power off · door open · RADIATING', unsafe: true },
 ];
 
 const rowIndex = (v: Vars) =>
   ROWS.findIndex(r => r.door === v.door && r.radiation === v.radiation && r.power === v.power);
 
-const LABEL_W = 190;
+// Wide enough for the longest row label ("power off · door closed · RADIATING",
+// 35 chars of ~6.3px monospace) so nothing gets clipped at the viewBox edge.
+const LABEL_W = 248;
 const CELL_W = 52;
 const CELL_H = 44;
 const PAD = 16;
