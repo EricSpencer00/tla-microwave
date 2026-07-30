@@ -94,11 +94,13 @@ export function StateGraph({ v, trace }: { v: Vars; trace: readonly TraceRow[] }
     const x1 = cx(from), y1 = cy(from), x2 = cx(to), y2 = cy(to);
     const color = ACTION_COLOR[name] ?? 'var(--ink-3)';
     if (eqVars(from, to)) {
-      // self-loop (e.g. Cancel from an already-idle state)
+      // Self-loop (e.g. Cancel from an already-idle state). Keep it a small
+      // pigtail well clear of the node radius — a loop as big as the node
+      // reads as a second, errant circle sitting behind it.
       return (
         <path
           key={`${name}-self`}
-          d={`M ${x1 - 6} ${y1 - R} a 10 10 0 1 1 12 0`}
+          d={`M ${x1 - 3.5} ${y1 - R - 1} a 5 5 0 1 1 7 0`}
           className={`gr-edge ${emphasized ? 'gr-edge-hot' : ''}`}
           style={{ stroke: color }}
           markerEnd="url(#gr-arrow)"
